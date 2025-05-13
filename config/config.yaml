@@ -1,0 +1,5 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  source: henrydioniz/swahili-sms-detection-dataset
+  file_name: bongo_scam.csv
