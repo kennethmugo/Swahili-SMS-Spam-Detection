@@ -4,3 +4,10 @@ data_ingestion:
   root_dir: artifacts/data_ingestion
   source: henrydioniz/swahili-sms-detection-dataset
   raw_data_path: artifacts/data_ingestion/bongo_scam.csv
+
+data_processing:
+  root_dir: artifacts/data_processing
+  train_data_path: artifacts/data_processing/train
+  test_data_path: artifacts/data_processing/test
+  sms_embeddings_filename: sms_embeddings.npy
+  labels_filename: labels.npy
