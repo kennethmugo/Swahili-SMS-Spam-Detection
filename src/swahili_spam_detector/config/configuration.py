@@ -15,6 +15,9 @@ class ConfigurationManager:
 
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         config = self.config.data_ingestion
-        data_ingestion_config = DataIngestionConfig(source=config.source, file_name=config.file_name)
+
+        create_directories([config.root_dir])
+
+        data_ingestion_config = DataIngestionConfig(source=config.source, raw_data_path=config.raw_data_path, root_dir=config.root_dir)
 
         return data_ingestion_config

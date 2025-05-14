@@ -1,8 +1,7 @@
 from dataclasses import dataclass
-from pathlib import Path
-
 
 @dataclass(frozen=True)
 class DataIngestionConfig:
     source: str
-    file_name: str
+    raw_data_path: str
+    root_dir: str
