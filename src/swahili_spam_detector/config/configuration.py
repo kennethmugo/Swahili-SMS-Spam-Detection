@@ -1,7 +1,6 @@
-import os
 from swahili_spam_detector.constants import *
 from swahili_spam_detector.utils.common import create_directories, read_yaml
-from swahili_spam_detector.entity.config_entity import DataIngestionConfig, DataProcessingConfig
+from swahili_spam_detector.entity.config_entity import DataIngestionConfig, DataProcessingConfig, ModelTrainingConfig, ModelEvaluationConfig
 
 class ConfigurationManager:
     def __init__(self,
@@ -36,3 +35,27 @@ class ConfigurationManager:
                                                       embedding_model=self.params.EMBEDDING_MODEL)
 
         return data_processing_config
+    
+    def get_model_training_config(self) -> ModelTrainingConfig:
+        config = self.config.model_training
+
+        create_directories([config.root_dir])
+
+        model_training_config = ModelTrainingConfig(trained_model_path=config.trained_model_path,
+                                                    root_dir=config.root_dir,
+                                                    train_data_path=self.config.data_processing.train_data_path,
+                                                    sms_embeddings_filename=self.config.data_processing.sms_embeddings_filename,
+                                                    labels_filename=self.config.data_processing.labels_filename,
+                                                    report_path=config.report_path)
+
+        return model_training_config
+    
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        model_evaluation_config = ModelEvaluationConfig(trained_model_path=self.config.model_training.trained_model_path,
+                                                        test_data_path=self.config.data_processing.test_data_path,
+                                                        sms_embeddings_filename=self.config.data_processing.sms_embeddings_filename,
+                                                        labels_filename=self.config.data_processing.labels_filename,
+                                                        all_params=self.params,
+                                                        mlflow_experiment_name="LaBSE_LogReg_Pipeline")
+
+        return model_evaluation_config

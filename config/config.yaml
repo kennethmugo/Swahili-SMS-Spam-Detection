@@ -11,3 +11,8 @@ data_processing:
   test_data_path: artifacts/data_processing/test
   sms_embeddings_filename: sms_embeddings.npy
   labels_filename: labels.npy
+
+model_training:
+  root_dir: artifacts/model_training
+  trained_model_path: artifacts/model_training/model.joblib
+  report_path: artifacts/model_training/report.json

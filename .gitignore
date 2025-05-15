@@ -175,3 +175,6 @@ cython_debug/
 
 # ignore the artifacts directory
 artifacts/*
+
+# ignore ml runs
+mlruns/*
