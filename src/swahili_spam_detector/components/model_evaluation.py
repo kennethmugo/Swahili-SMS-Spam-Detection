@@ -39,10 +39,18 @@ class ModelEvaluation:
         self.report = report
     
     def log_into_mlflow(self):
-
         with mlflow.start_run(run_name=self.config.mlflow_experiment_name):
             mlflow.log_params(self.config.all_params)
             mlflow.log_metrics(self.report)
-            mlflow.sklearn.log_model(self.model, "model")
+            
+            # Create model directory if it doesn't exist
+            model_dir = "model"
+            if not os.path.exists(model_dir):
+                os.makedirs(model_dir)
+            
+            # Save and log the model
+            model_path = os.path.join(model_dir, "model.joblib")
+            joblib.dump(self.model, model_path)
+            mlflow.log_artifact(model_path)
         
         
