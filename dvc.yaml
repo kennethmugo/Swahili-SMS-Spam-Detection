@@ -1,0 +1,40 @@
+stages:
+  data_ingestion:
+    cmd: python src/swahili_spam_detector/pipeline/stage_01_data_ingestion.py
+    deps:
+      - src/swahili_spam_detector/pipeline/stage_01_data_ingestion.py
+      - config/config.yaml
+    outs:
+      - artifacts/data_ingestion/bongo_scam.csv
+
+  data_processing:
+    cmd: python src/swahili_spam_detector/pipeline/stage_02_data_processing.py
+    deps:
+      - src/swahili_spam_detector/pipeline/stage_02_data_processing.py
+      - config/config.yaml
+    params:
+      - EMBEDDING_MODEL
+    outs:
+      - artifacts/data_processing/train/sms_embeddings.npy
+      - artifacts/data_processing/train/labels.npy
+      - artifacts/data_processing/test/sms_embeddings.npy
+      - artifacts/data_processing/test/labels.npy
+
+  model_training:
+    cmd: python src/swahili_spam_detector/pipeline/stage_03_model_training.py
+    deps:
+      - src/swahili_spam_detector/pipeline/stage_03_model_training.py
+      - config/config.yaml
+      - artifacts/data_processing/train/sms_embeddings.npy
+      - artifacts/data_processing/train/labels.npy
+    outs:
+      - artifacts/model_training/model.joblib
+      - artifacts/model_training/report.json
+
+  model_evaluation:
+    cmd: python src/swahili_spam_detector/pipeline/stage_04_model_evaluation.py
+    deps:
+      - src/swahili_spam_detector/pipeline/stage_04_model_evaluation.py
+      - artifacts/model_training/model.joblib
+      - artifacts/data_processing/test/sms_embeddings.npy
+      - artifacts/data_processing/test/labels.npy
