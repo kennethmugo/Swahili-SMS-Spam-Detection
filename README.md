@@ -15,6 +15,66 @@ This project implements an end-to-end machine learning pipeline for detecting sp
 - Docker support for containerized deployment
 - Modular architecture following clean code principles
 
+## Model Experiments and Results
+
+### Current Production Model
+- **Architecture**: LaBSE Embeddings + Logistic Regression
+- **Performance**:
+  - Accuracy: 99%
+  - Perfect separation of spam and non-spam messages
+  - Robust performance on Swahili text
+- **Advantages**:
+  - Lightweight and fast inference
+  - Excellent multilingual capabilities
+  - Production-ready with minimal computational requirements
+
+### Alternative Approaches Explored
+
+#### Zero-Shot Classification with Gemma 3-4B-IT
+- **Performance**:
+  - Accuracy: 79%
+  - Good interpretability of results
+- **Key Findings**:
+  - Shows promise for low-resource languages
+  - No fine-tuning required
+  - Trade-off between accuracy and explainability
+
+#### Model Explainability
+- **Method**: LLM-based explanation using Gemma 3-4B-IT
+- **Results**:
+  - 100% recall for spam messages
+  - Provides human-readable explanations for classifications
+- **Example**:
+  ```text
+  Input: "KARIBU FREEMASON UTIMIZE NDOTO..."
+  Classification: Spam
+  Explanation: "Message identified as spam due to:
+  1. Suspicious organization recruitment
+  2. Promise of dream fulfillment
+  3. Typical scam message patterns"
+  ```
+
+### Future Exploration Plans
+
+#### Models to Evaluate
+1. **LLaMA 3**
+   - Focus on few-shot learning capabilities
+   - Potential for improved multilingual understanding
+
+2. **OpenAI Models**
+   - GPT-4 for high-accuracy classification
+   - Fine-tuning experiments on smaller models
+
+3. **Qwen Models**
+   - Evaluate performance on Swahili text
+   - Compare with other multilingual models
+
+#### Research Directions
+- Cross-lingual transfer learning
+- Hybrid approaches combining embeddings and LLMs
+- Cost-effective deployment strategies
+- Real-time explanation generation
+
 ## Technical Architecture
 
 ### Components
