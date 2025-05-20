@@ -54,26 +54,47 @@ This project implements an end-to-end machine learning pipeline for detecting sp
   3. Typical scam message patterns"
   ```
 
+### Model Comparison
+
+| Model | Accuracy | Swahili Support | Explanation Quality | Notable Characteristics |
+|-------|----------|-----------------|---------------------|------------------------|
+| LaBSE + LR | 99% | Excellent | N/A | Fast, lightweight, production-ready |
+| Qwen 3-4B | 96% | Good | Moderate | Strong at detecting financial scams |
+| GPT-4.1 | 89% | Excellent | Outstanding | Best at Swahili explanations |
+| Gemma 3-4B-IT | 79% | Moderate | Good | Good baseline performance |
+
+#### Detailed Findings
+
+1. **Qwen 3-4B**
+   - **Strengths**:
+     - High accuracy (96%) with zero-shot prompting
+     - Strong detection of financial scams
+     - Good at identifying suspicious phone numbers
+   - **Limitations**:
+     - Explanations sometimes miss Swahili context
+     - Occasional misinterpretation of local terms
+
+2. **GPT-4.1**
+   - **Strengths**:
+     - Best Swahili language understanding
+     - Most detailed and accurate explanations
+     - Excellent cultural context awareness
+   - **Limitations**:
+     - Lower accuracy (89%) due to over-trusting
+     - Sometimes misclassifies verified-looking scams
+     - Higher computational requirements
+
+3. **LLaMA 3**
+   - Not evaluated due to insufficient Swahili language support
+
 ### Future Exploration Plans
 
-#### Models to Evaluate
-1. **LLaMA 3**
-   - Focus on few-shot learning capabilities
-   - Potential for improved multilingual understanding
-
-2. **OpenAI Models**
-   - GPT-4 for high-accuracy classification
-   - Fine-tuning experiments on smaller models
-
-3. **Qwen Models**
-   - Evaluate performance on Swahili text
-   - Compare with other multilingual models
-
 #### Research Directions
-- Cross-lingual transfer learning
 - Hybrid approaches combining embeddings and LLMs
 - Cost-effective deployment strategies
 - Real-time explanation generation
+- Improved handling of verified-looking scams
+- Better integration of cultural context
 
 ## Technical Architecture
 
