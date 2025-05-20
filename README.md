@@ -82,7 +82,6 @@ This project implements an end-to-end machine learning pipeline for detecting sp
    - **Limitations**:
      - Lower accuracy (89%) due to over-trusting
      - Sometimes misclassifies verified-looking scams
-     - Higher computational requirements
 
 3. **LLaMA 3**
    - Not evaluated due to insufficient Swahili language support
