@@ -97,6 +97,30 @@ This project implements an end-to-end machine learning pipeline for detecting sp
 - Improved handling of verified-looking scams
 - Better integration of cultural context
 
+### Production Deployment Strategy
+
+#### Recommended Approach
+- **Primary Classification**: LaBSE + Logistic Regression
+  - High accuracy (99%)
+  - Low latency
+  - Minimal compute requirements
+
+- **Explanation Generation**: GPT-4.1 or Qwen 3-4B
+  - On-demand explanations
+  - High-quality Swahili understanding
+  - Flexible deployment options
+
+#### Scaling Considerations
+- **High-accuracy Explanations**:
+  - Larger GPT/Qwen variants for critical use cases
+  - Reasoning models for model introspection
+  - Potential for fine-tuning based on failure analysis
+
+- **Cost Optimization**:
+  - Mixture of Experts (MoE) architectures for larger models
+  - Selective explanation generation
+  - Caching common explanations
+
 ## Technical Architecture
 
 ### Components
