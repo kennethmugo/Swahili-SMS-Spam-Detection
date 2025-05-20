@@ -27,6 +27,8 @@ This project implements an end-to-end machine learning pipeline for detecting sp
   - Lightweight and fast inference
   - Excellent multilingual capabilities
   - Production-ready with minimal computational requirements
+- **Disadvantages**
+  - Difficulty explaining individual predictions 
 
 ### Alternative Approaches Explored
 
