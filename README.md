@@ -119,6 +119,25 @@ mlflow server --host 127.0.0.1 --port 8080
 | GPT-4.1 | 89% | Excellent | Outstanding | Best at Swahili explanations |
 | Gemma 3-4B-IT | 79% | Moderate | Good | Good baseline performance |
 
+### Topic Modeling Analysis
+
+The project includes topic modeling using BERTopic to better understand the different types of spam messages. The analysis was performed using:
+- **Embedding Model**: Sentence Transformers with LaBSE embeddings
+- **Clustering**: HDBSCAN
+- **Dimensionality Reduction**: UMAP
+
+#### Identified Topics
+
+Five distinct topics were identified in the spam messages:
+
+1. **Topic 0**: Money-related scams
+2. **Topic 1**: Financial fraud schemes
+3. **Topic 2**: Phishing attempts (containing malicious links)
+4. **Topic 3**: Traditional healing advertisements
+5. **Topic 4**: Prize/reward scams (promising significant monetary rewards)
+
+This topic modeling provides valuable insights into the different categories of spam messages in Swahili, helping to better understand and combat various types of fraudulent communications.
+
 ### Alternative Approaches Explored
 
 #### Zero-Shot Classification with Gemma 3-4B-IT
