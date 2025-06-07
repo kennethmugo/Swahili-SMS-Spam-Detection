@@ -114,6 +114,7 @@ mlflow server --host 127.0.0.1 --port 8080
 
 | Model | Accuracy | Swahili Support | Explanation Quality | Notable Characteristics |
 |-------|----------|-----------------|---------------------|------------------------|
+| Qwen3 + LR | 100% | Excellent | N/A | Perfect accuracy, lightweight, production-ready |
 | LaBSE + LR | 99% | Excellent | N/A | Fast, lightweight, production-ready |
 | Qwen 3-4B | 96% | Good | Moderate | Strong at detecting financial scams |
 | GPT-4.1 | 89% | Excellent | Outstanding | Best at Swahili explanations |
