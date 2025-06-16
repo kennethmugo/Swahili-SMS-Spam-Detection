@@ -83,7 +83,7 @@ mlflow server --host 127.0.0.1 --port 8080
 ├── artifacts/          # Generated artifacts (data, models)
 ├── config/            # Configuration files
 ├── model/            # Saved models
-├── research/         # Jupyter notebooks for experimentation
+├── notebooks/         # Jupyter notebooks for experimentation
 ├── src/              # Main source code
 │   └── swahili_spam_detector/
 │       ├── components/    # Core ML components
